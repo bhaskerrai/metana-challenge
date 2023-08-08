@@ -1,34 +1,20 @@
 import { ethers } from "hardhat";
 
-// const PROPOSALS = ["Proposal 1", "Proposal 2", "Proposal 3"];
-
 async function main() {
-    const PROPOSALS = process.argv.slice(2)
-    console.log("Proposals: ");
-    PROPOSALS.forEach((element, index) => {
-        console.log(`Proposal N. ${index + 1}: ${element}`);
-    });
-    // TODO
+    const [deployer, account2] = await ethers.getSigners();
 
-    console.log("Deploying Ballot contract...");
-    const ballotFactory = await ethers.getContractFactory("Ballot")
-    const ballotContract = await ballotFactory.deploy(PROPOSALS.map(ethers.encodeBytes32String));
-    await ballotContract.waitForDeployment();
-    const address = await ballotContract.getAddress();
+    const someContractFactory = await ethers.getContractFactory("SomeFile");
+    const someContract = await someContractFactory.deploy();
 
-    console.log(`Deployed contract at ${address}`);
+    await someContract.waitForDeployment();
 
-    for(let i = 0; i < PROPOSALS.length; i++) {
-        const proposal = await ballotContract.proposals(i);
-        const name = ethers.decodeBytes32String(proposal.name)
-        console.log(i, name, proposal)
-    }
-
+    const tokenContractAddress = await someContract.getAddress();
+    console.log(tokenContractAddress);
 
 
 }
 
-main().catch((error) => {
-  console.error(error);
+main().catch((err) => {
+  console.error(err);
   process.exitCode = 1;
 });
