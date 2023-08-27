@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import { SomeFile__factory } from '../typechain-types';  //Note: Change this to the solidity file (i.e fileName__factory) you have compiled
-
+import {verify} from '../utils/verify';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
@@ -28,6 +28,12 @@ async function main() {
     const address = await someContract.getAddress();
     
     console.log(`Deployed contract at ${address}`);
+
+
+    // Verify Contract
+
+    // const args = ["arg1", "arg2", ...] 
+    // verify(address, args)
     
 
 }
