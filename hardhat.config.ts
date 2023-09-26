@@ -3,20 +3,19 @@ import "@nomicfoundation/hardhat-toolbox";
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-const PRIVATE_KEY = process.env.PRIVATE_KEY_1 || "";
+const PRIVATE_KEY = process.env.PRIVATE_KEY || "";
+const SWISS_PRIVATE_KEY = `0x${process.env.SWISS_PRIVATE_KEY}` || "";
 const INFURA_API_KEY = process.env.INFURA_API_KEY
 
 const config: HardhatUserConfig = {
   solidity: "0.8.19",
   paths: { tests: "tests" },
   networks: {
-    hardhat: {
-      chainId: 1337, // Sepolia chainId
-    },
-    sepolia: {
-      url: `https://sepolia.infura.io/v3/${INFURA_API_KEY}`,
-      chainId: 11155111, // Sepolia chainId
-      accounts: [PRIVATE_KEY], // Provide an array of private keys directly
+    
+    swisstronik: {
+      url: "https://json-rpc.testnet.swisstronik.com/", //URL of the RPC node for Swisstronik.
+      accounts: [SWISS_PRIVATE_KEY], //Your private key starting with "0x" 
+      //Make sure you have enough funds in this wallet to deploy the smart contract
     },
   },
 

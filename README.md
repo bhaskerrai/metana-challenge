@@ -1,21 +1,6 @@
-# Sample Hardhat Project
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+## Token Contract Address: 
+0x1673098BdE00E19c4B7b41C595c10f4AbEc4F264
 
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.ts
-```
-
-
-# To verify contract 
-
-Either call the verify function from utils/verify.ts
-
-or run this command on terminal 
-``` yarn hardhat verify --network sepolia contractAddress --constructor-args "arg1,arg2,arg3" ```
+## Minting 100 tokens Transaction hash:
+0xba5880675e2ca00b2a8090bc39c37167ae65ae476223fa6794b51a51081c332c

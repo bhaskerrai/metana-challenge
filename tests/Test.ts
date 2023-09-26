@@ -1,16 +1,16 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { SomeFile } from "../typechain-types";
+import { MetanaToken } from "../typechain-types";
 import { HardhatEthersSigner } from "@nomicfoundation/hardhat-ethers/signers";
 
 describe("Basic tests for understanding ERC20", async () => {
-  let myContract: SomeFile;
+  let myContract: MetanaToken;
   let accounts: HardhatEthersSigner[];
 
   beforeEach(async () => {
     accounts = await ethers.getSigners();
     const myContractFactory = await ethers.getContractFactory(
-      "SomeFile"
+      "MetanaToken"
     );
     myContract = await myContractFactory.deploy();
     await myContract.waitForDeployment();
